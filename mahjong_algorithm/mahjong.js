@@ -26,11 +26,12 @@
 
 
 module.exports = input => {
-    const yaku = new Array()
-    const yakus = require('./yakus')
-    input.ps = require('.sort')(input.ps) //sorting됨
-    result = require('./hand/hands')(input.ps)
-    
+    //const yaku = new Array()
+    // const yakus = require('./yakus')
+    // input.ps = require('.sort')(input.ps) //sorting됨
+    // result = require('./hand/hands')(input.ps)
+    yaku = require('.sort')(input) //sorting됨
+    result = require('./hand/hands')(yaku)
         // 리치
 
         // 일발
@@ -70,6 +71,6 @@ module.exports = input => {
 
         // 도라
    
-    return yaku
+    return result
 }
 

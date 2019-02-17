@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+    <script type='text/javascript'>
+        var pae = [
+    { type: 5, number: 2, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 1, number: 4, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 3, number: 3, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 1, number: 4, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 4, number: 2, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 5, number: 2, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 4, number: 2, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 4, number: 2, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 2, number: 7, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 2, number: 8, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 5, number: 2, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 2, number: 9, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 3, number: 5, noble: false, tsumo: false, dora: true, uradora: false, akadora: false },
+    { type: 3, number: 4, noble: false, tsumo: false, dora: true, uradora: false, akadora: false }
+]
+
+    var sorted = pae.sort(function(a, b) {
+        if(a.type == b.type) {
+            return a.number - b.number
+        }
+        return a.type - b.type
+    })
+    sorted.forEach(function(tile) {
+        document.write("tile type : ", tile.type, " ")
+        document.writeln("tile number : ", tile.number)
+    })
+    for(let i = 0; i < sorted.length; i++) {
+        document.writeln(sorted[i].tsumo)
+    }
+    </script>
+    </pre> 
+</body>
+</html>
