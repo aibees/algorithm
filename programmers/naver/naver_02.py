@@ -8,7 +8,7 @@ def solution(n) :
     elif n is 2 :
         answer = 6
     else :
-        for i in range(3, n*(n+1)) :
+        for i in range(3, n*(n+1)//2) :
             for j in range(1, i-1) :
                 res = math.factorial(i) // math.factorial(j)
                 if res <= 1000000 * 1000000 :

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Main {
+public class baekjoon_1039 {
 	
 	private static LinkedList<String> li = new LinkedList<>();
 	private static Set<String> visited;
