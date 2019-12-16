@@ -1,9 +1,7 @@
-package example;
-
 import java.util.*;
 import java.io.*;
 
-class Main {
+class baekjoon_11559 {
 	static char[][] puyo = new char[12][6];
 	static boolean[][] check;
 	static Queue<node> q = new LinkedList<>();

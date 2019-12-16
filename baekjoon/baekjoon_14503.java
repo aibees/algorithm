@@ -1,8 +1,6 @@
-package algorithm;
-
 import java.util.*;
 
-public class Main {
+public class baekjoon_14503 {
    
    static int[][] map;
    static boolean[][] check;
