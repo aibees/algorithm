@@ -1,19 +1,21 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <utility>
 #include <algorithm>
 
 using namespace std;
 
 int d_h, d_w, K, O;
-vector<vector<char> > draw;
-map<int, vector<vector<char> > > stamps;
+char draw[1001][1001];
+map<int, vector<string> > stamps;
+map<int, pair<int, int> > stamp_size;
 
 void process(int num, int y, int x) {
-	vector<vector<char> > stamp = stamps[num];
-	for(int i = 0; i < stamp.size(); i++) {
-		vector<char> row = stamp[i];
-		for(int j = 0; j < row.size(); j++) {
+	vector<string> stamp = stamps[num];
+	auto size_p = stamp_size[num];
+	for(int i = 0; i < size_p.first; i++) {
+		for(int j = 0; j < size_p.second; j++) {
 			if(i+y < d_h && j+x < d_w) {
 				draw[i+y][j+x] = stamp[i][j];
 			}
@@ -27,32 +29,30 @@ int main(void) {
 	cin.tie(NULL);
 	
 	cin >> d_h >> d_w;
+	
+	// draw init
 	for(int i = 0; i < d_h; i++) {
-		vector<char> draw_row;	draw_row.reserve(d_w);
 		for(int j = 0; j < d_w; j++) {
-			draw_row.push_back('.');
+			draw[i][j] = '.';
 		}
-		draw.push_back(draw_row);
 	}
+	
+	// the number of stamps
 	cin >> K;
 	
 	// get stamps
 	for(int i = 1; i < K+1; i++) {
 		int stamp_h, stamp_w;
 		cin >> stamp_h >> stamp_w;
-		vector<vector<char> > stamp;	stamp.reserve(stamp_h);
-		
+		vector<string> stamp;
+		cin.ignore(256, '\n');
 		for(int j = 0; j < stamp_h; j++) {
-			vector<char> c_tmp;	c_tmp.reserve(stamp_w);
-			
-			for(int k = 0; k < stamp_w; k++) {
-				char tmp;	cin >> tmp;
-				c_tmp.push_back(tmp);
-			}
-			stamp.push_back(c_tmp);
-			c_tmp.clear();
+			string line;
+			getline(cin, line);
+			stamp.push_back(line);
 		}
 		stamps[i] = stamp;
+		stamp_size[i] = make_pair(stamp_h, stamp_w);
 	}
 	
 	// get orders
